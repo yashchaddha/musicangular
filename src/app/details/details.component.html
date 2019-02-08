@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+          <img src="{{movieDetails.featured_image}}"class="card-img-top" alt="...">
+cyuycyucry
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+          <h5 class="card-title"> Restaurant Name:{{movieDetails.name}}</h5>
+          <p class="card-text">address : {{movieDetails.location.address}}</p>
+          <p class="card-text">city : {{movieDetails.location.city}}</p>
+      <p class="card-text">cuisines: {{movieDetails.cuisines}}</p>
+      <p class="card-text"></p>
+
+
+      <button  (click)="add(movieDetails)" class="btn btn-success">add to fav...</button>
+  </div>
+    </div>
+  </div>
+</div>

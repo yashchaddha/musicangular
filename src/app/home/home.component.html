@@ -1,0 +1,83 @@
+<div class="heroBanner">
+  <div class="jumbotron">
+     <div [style.backgroundImage]="'url(./assets/heroHeader.jpg)'" class="jumbotron">
+      <div class="container-fluid">
+          <br/>
+        <div class="row justify-content-center">
+                              <div class="col-12 col-md-10 col-lg-8">
+                                  <form #heroform="ngForm" class="card card-sm" (ngSubmit)="getMusic(search.value)">
+                                      <div class="card-body row no-gutters align-items-center">
+                                          <div class="col-auto">
+                                              <i class="fas fa-search h5 text-body"></i>
+                                          </div>
+                                          <!--end of col-->
+                                          
+                                          <div class="col">
+                                              <input #search class="form-control form-control-lg form-control-borderless" type="search" id="search" placeholder="Seach for latest songs">
+                                          </div>
+                                          <!--end of col-->
+                                          <div class="col-auto"></div>
+                                              <button class="btn btn-lg btn-success" type="submit" (click)=hideTrending()>Search</button>
+                                          </div>
+                                          <!--end of col-->
+                                     
+                                </form>
+                              </div>
+                              <!--end of col-->
+                          </div>
+      </div>
+    <h1 class="font-weight-bold text-white text-center  my-5" style="color:white;font-size:4rem;">
+        Explore Top Music by your Scrobbles
+    </h1>
+     <p class="text-white text-center" style="color:white;font-size:1.5rem;">
+
+        We bring together your favourite music services and join up listening, <br>
+        watching and sharing to connect your musical world.
+        
+  </div>
+    </div>
+</div>
+<div class=" container-fluid d-flex flex-wrap ">
+    <div class="card col-sm-12 col-md-4 col-lg-3" style="width: 18rem;" *ngFor ="let music of arrayMusic" >
+       <img src="{{music.image[3]['#text']}}" class="card-img-top" alt="...">
+       <div class="card-body">
+         <h5 class="card-title">{{music.name}}</h5>
+       </div>
+       <ul class="list-group list-group-flush">
+         <li class="list-group-item">{{music.artist}}</li>
+         <li class="list-group-item">{{music.listeners}}</li>
+         <li class="list-group-item">{{music.streamable}}</li>
+       </ul>
+       <div class="card-body">
+         <a  class="btn btn-success card-link" href="{{music.url}}">Play</a>
+         <a class="btn btn-danger card-link" (click)="addfav(music.name,music.artist,music.listeners,music.streamable,music.url,music.image)">Add to Fav</a>
+       </div>
+      </div>
+      </div>
+      
+<div *ngIf="isavailable">
+<app-trending></app-trending>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
